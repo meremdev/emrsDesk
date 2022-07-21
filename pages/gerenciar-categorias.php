@@ -11,7 +11,7 @@
 		}
 		$noticias = MySql::conectar()->prepare("DELETE FROM `tb_site.noticias` WHERE categoria_id = ?");
 		$noticias->execute(array($idExcluir));
-		Painel::redirect(INCLUDE_PATH_PAINEL.'gerenciar-categorias');
+		Painel::redirect(INCLUDE_PATH.'gerenciar-categorias');
 	}else if(isset($_GET['order']) && isset($_GET['id'])){
 		Painel::orderItem('tb_site.categorias',$_GET['order'],$_GET['id']);
 	}

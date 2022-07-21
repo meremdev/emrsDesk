@@ -26,12 +26,14 @@
 					Painel::alert('erro','A imagem precisa estar selecionada!');
 				}else{
 					//Podemos cadastrar!
-					if($cargo >= $_SESSION['cargo']){
-						Painel::alert('erro','Você precisa selecionar um cargo menor que o seu!');
-					}else if(Painel::imagemValida($imagem) == false){
+					// if($cargo >= $_SESSION['cargo']){
+					// 	Painel::alert('erro','Você precisa selecionar um cargo menor que o seu!');
+					// }else 
+					
+					if(Painel::imagemValida($imagem) == false){
 						Painel::alert('erro','O formato especificado não está correto!');
 					}else if(Usuario::userExists($login)){
-						Painel::alert('erro','O login já existe, selecione outro por favor!');
+						Painel::alert('erro','O Departamento já , selecione outro por favor!');
 					}else{
 						//Apenas cadastrar no banco de dados!
 						$usuario = new Usuario();
@@ -66,7 +68,7 @@
 			<select name="cargo">
 				<?php
 					foreach (Painel::$cargos as $key => $value) {
-						if($key < $_SESSION['cargo']) echo '<option value="'.$key.'">'.$value.'</option>';
+						echo '<option value="'.$key.'">'.$value.'</option>';
 					}
 				?>
 			</select>

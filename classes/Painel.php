@@ -72,8 +72,8 @@
 
 		public static function imagemValida($imagem){
 			if($imagem['type'] == 'image/jpeg' ||
-				$imagem['type'] == 'imagem/jpg' ||
-				$imagem['type'] == 'imagem/png'){
+				$imagem['type'] == 'image/jpg' ||
+				$imagem['type'] == 'image/png'){
 
 				$tamanho = intval($imagem['size']/1024);
 				if($tamanho < 300)
@@ -104,7 +104,7 @@
 			$query = "INSERT INTO `$nome_tabela` VALUES (null";
 			foreach ($arr as $key => $value) {
 				$nome = $key;
-				$valor = $value;
+				$value;
 				if($nome == 'acao' || $nome == 'nome_tabela')
 					continue;
 				if($value == ''){
@@ -120,7 +120,7 @@
 				$sql = MySql::conectar()->prepare($query);
 				$sql->execute($parametros);
 				$lastId = MySql::conectar()->lastInsertId();
-				$sql = MySql::conectar()->prepare("UPDATE `$nome_tabela` SET order_id = ? WHERE id = $lastId");
+				$sql = MySql::conectar()->prepare("UPDATE `$nome_tabela` SET id = ? WHERE id = $lastId");
 				$sql->execute(array($lastId));
 			}
 			return $certo;
@@ -168,9 +168,9 @@
 
 		public static function selectAll($tabela,$start = null,$end = null){
 			if($start == null && $end == null)
-				$sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY order_id ASC");
+				$sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY id DESC");
 			else
-				$sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY order_id ASC LIMIT $start,$end");
+				$sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` ORDER BY id DESC LIMIT $start,$end");
 	
 			$sql->execute();
 

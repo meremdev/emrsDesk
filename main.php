@@ -10,8 +10,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<link rel="stylesheet" href="../estilo/font-awesome.min.css">
-	<link href="<?php echo INCLUDE_PATH ?>css/style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>estilo/font-awesome.min.css">
+	<link href="<?php echo INCLUDE_PATH ?>estilo/style.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -30,29 +30,21 @@
 			</div><!--avatar-usuario-->
 		<?php } ?>
 		<div class="nome-usuario">
+			<p><?php echo $_SESSION['user']; ?></p>
 			<p><?php echo $_SESSION['nome']; ?></p>
-			<p><?php echo pegaCargo($_SESSION['cargo']); ?></p>
 		</div><!--nome-usuario-->
 	</div><!--box-usuario-->
 	<div class="items-menu">
-		<h2>Cadastro</h2>
-		<a <?php selecionadoMenu('cadastrar-depoimento'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-depoimento">Cadastrar Depoimento</a>
-		<a <?php selecionadoMenu('cadastrar-servico'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-servico">Cadastrar Serviço</a>
-		<a <?php selecionadoMenu('cadastrar-slides'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-slides">Cadastrar Slides</a>
-		<h2>Gestão</h2>
-		<a <?php selecionadoMenu('listar-depoimentos'); ?> href="<?php echo INCLUDE_PATH ?>listar-depoimentos">Listar Depoimentos</a>
-		<a <?php selecionadoMenu('listar-servicos'); ?> href="<?php echo INCLUDE_PATH ?>listar-servicos">Listar Serviços</a>
-		<a <?php selecionadoMenu('listar-slides'); ?> href="<?php echo INCLUDE_PATH ?>listar-slides">Listar Slides</a>
+		<h2>Chamados</h2>
+		<a <?php selecionadoMenu('cadastrar-chamdo'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado">Registrar Chamado</a>
+		<a <?php selecionadoMenu('cadastrar-ativo'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-ativo">Cadastrar Ativos</a>
+		<a <?php selecionadoMenu('gerenciar-ativos'); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-ativos">Gerenciar Ativos</a>
+		<a <?php selecionadoMenu('gerenciar-chamados'); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-chamados">Gerenciar Chamados</a>
 		<h2>Administração do painel</h2>
 		<a <?php selecionadoMenu('editar-usuario'); ?> href="<?php echo INCLUDE_PATH ?>editar-usuario">Editar Usuário</a>
 		<a <?php selecionadoMenu('adicionar-usuario'); ?> <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>adicionar-usuario">Adicionar Usuário</a>
 		<h2>Configuração Geral</h2>
 		<a <?php selecionadoMenu('editar-site'); ?> href="<?php echo INCLUDE_PATH ?>editar-site">Editar Site</a>
-		<h2>Gestão de Notícias</h2>
-		<a <?php selecionadoMenu('cadastrar-categorias'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-categorias">Cadastrar Categorias</a>
-		<a <?php selecionadoMenu('gerenciar-categorias'); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-categorias">Gerenciar Categorias</a>
-		<a <?php selecionadoMenu('cadastrar-noticia'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-noticia">Cadastrar Notícias</a>
-		<a <?php selecionadoMenu('gerenciar-noticias'); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-noticias">Gerenciar Notícias</a>
 	</div><!--items-menu-->
 	</div><!--menu-wraper-->
 </div><!--menu-->
