@@ -36,13 +36,14 @@
 	</div><!--box-usuario-->
 	<div class="items-menu">
 		<h2>Chamados</h2>
-		<a <?php selecionadoMenu('cadastrar-chamdo'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado">Registrar Chamado</a>
-		<a <?php selecionadoMenu('cadastrar-ativo'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-ativo">Cadastrar Ativos</a>
-		<a <?php selecionadoMenu('gerenciar-ativos'); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-ativos">Gerenciar Ativos</a>
-		<a <?php selecionadoMenu('gerenciar-chamados'); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-chamados">Gerenciar Chamados</a>
+		<a <?php selecionadoMenu('cadastrar-chamdo'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado">Registrar</a>
+		<a <?php selecionadoMenu('visualizar-chamdos'); ?> href="<?php echo INCLUDE_PATH ?>visualizar-chamados">Visualizar</a>
+		<a <?php selecionadoMenu('cadastrar-ativo'); ?>  <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-ativo">Cadastrar Ativos</a>
+		<a <?php selecionadoMenu('gerenciar-ativos'); ?>  <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-ativos">Gerenciar Ativos</a>
+		<a <?php selecionadoMenu('gerenciar-chamados'); ?>  <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>gerenciar-chamados">Gerenciar Chamados</a>
 		<h2>Administração do painel</h2>
 		<a <?php selecionadoMenu('editar-usuario'); ?> href="<?php echo INCLUDE_PATH ?>editar-usuario">Editar Usuário</a>
-		<a <?php selecionadoMenu('adicionar-usuario'); ?> <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>adicionar-usuario">Adicionar Usuário</a>
+		<a <?php selecionadoMenu('adicionar-usuario'); ?> <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>adicionar-usuario">Adicionar Usuário</a>
 		<h2>Configuração Geral</h2>
 		<a <?php selecionadoMenu('editar-site'); ?> href="<?php echo INCLUDE_PATH ?>editar-site">Editar Site</a>
 	</div><!--items-menu-->

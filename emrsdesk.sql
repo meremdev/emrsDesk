@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Jul-2022 às 03:39
+-- Tempo de geração: 22-Jul-2022 às 04:56
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 7.4.29
 
@@ -38,7 +38,8 @@ CREATE TABLE `ativos` (
 
 INSERT INTO `ativos` (`id`, `nome`) VALUES
 (1, 'computador'),
-(2, 'internet');
+(2, 'internet'),
+(3, 'roteador');
 
 -- --------------------------------------------------------
 
@@ -48,6 +49,7 @@ INSERT INTO `ativos` (`id`, `nome`) VALUES
 
 CREATE TABLE `chamados` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `ativos_id` int(11) NOT NULL,
   `data` datetime NOT NULL DEFAULT current_timestamp(),
   `conteudo` text NOT NULL,
@@ -58,8 +60,9 @@ CREATE TABLE `chamados` (
 -- Extraindo dados da tabela `chamados`
 --
 
-INSERT INTO `chamados` (`id`, `ativos_id`, `data`, `conteudo`, `capa`) VALUES
-(1, 1, '2022-07-20 00:00:00', '<p>n&atilde;o esta funcionando&nbsp;</p>', '62d8a75cd06c7.png');
+INSERT INTO `chamados` (`id`, `user_id`, `ativos_id`, `data`, `conteudo`, `capa`) VALUES
+(2, 3, 3, '2022-07-21 00:00:00', '<p>roteador desligou</p>', '62da0788595f9.png'),
+(3, 1, 2, '2022-07-21 00:00:00', '<p>muito lenta</p>', '62da0a5a07c7b.png');
 
 -- --------------------------------------------------------
 
@@ -95,7 +98,8 @@ CREATE TABLE `tb_admin.usuarios` (
 
 INSERT INTO `tb_admin.usuarios` (`id`, `user`, `password`, `img`, `nome`, `cargo`) VALUES
 (1, 'admin', 'admin', '595695efaac58.jpg', 'Guilherme C. Grillo', 2),
-(2, 'guigui768', '123456', 'danki_bg.jpg', 'Guilherme C. Grillo', 0);
+(2, 'guigui768', '123456', 'danki_bg.jpg', 'Guilherme C. Grillo', 0),
+(3, 'almoxarifado', '123', '62d8af858caa2.png', 'fabio ferreira', 0);
 
 -- --------------------------------------------------------
 
@@ -341,13 +345,13 @@ ALTER TABLE `tb_site.slides`
 -- AUTO_INCREMENT de tabela `ativos`
 --
 ALTER TABLE `ativos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `chamados`
 --
 ALTER TABLE `chamados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_admin.online`
@@ -359,7 +363,7 @@ ALTER TABLE `tb_admin.online`
 -- AUTO_INCREMENT de tabela `tb_admin.usuarios`
 --
 ALTER TABLE `tb_admin.usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_admin.visitas`

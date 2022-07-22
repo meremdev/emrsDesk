@@ -12,9 +12,11 @@
 		$chamados = MySql::conectar()->prepare("DELETE FROM `chamados` WHERE ativos_id = ?");
 		$chamados->execute(array($idExcluir));
 		Painel::redirect(INCLUDE_PATH.'gerenciar-ativos');
-	}else if(isset($_GET['order']) && isset($_GET['id'])){
-		Painel::orderItem('tb_site.categorias',$_GET['order'],$_GET['id']);
 	}
+	
+	// else if(isset($_GET['order']) && isset($_GET['id'])){
+	// 	Painel::orderItem('tb_site.categorias',$_GET['order'],$_GET['id']);
+	// }
 
 	$paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 	$porPagina = 4;

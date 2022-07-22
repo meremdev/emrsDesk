@@ -6,6 +6,8 @@
 		<?php
 
 			if(isset($_POST['acao'])){
+
+				$user_id = $_POST['user_id'];
 				$ativo_id = $_POST['ativos_id'];
 				$conteudo = $_POST['conteudo'];
 				$capa = $_FILES['capa'];
@@ -21,7 +23,7 @@
 						if($verifica->rowCount() == 0){
 						$imagem = Painel::uploadFile($capa);
 						//$slug = Painel::generateSlug($titulo);
-						$arr = ['ativos_id'=>$ativo_id,'data'=>date('Y-m-d'),'conteudo'=>$conteudo,'capa'=>$imagem,
+						$arr = ['user_id' => $user_id, 'ativos_id'=>$ativo_id,'data'=>date('Y-m-d'),'conteudo'=>$conteudo,'capa'=>$imagem,
 						'nome_tabela'=>'chamados'
 						];
 						if(Painel::insert($arr)){
@@ -72,12 +74,20 @@
 			<input type="file" name="capa"/>
 		</div><!--form-group-->
 
+			<?php
+				$user = $_SESSION['user'];
+				$usuario = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user= ?");
+				$usuario->execute(array($user));
+				$usuario = $usuario->fetchAll();
+				foreach ($usuario as $key => $value) {
+			?>
+			
 		<div class="form-group">
 			<input type="hidden" name="nome_tabela" value="chamados" />
-			<input type="hidden" name="user_id" value="" />
-			<input type="submit" name="acao" value="Cadastrar!">
+			<input type="hidden" name="user_id" value="<?php echo $value['id']?>" />
+			<input type="submit" name="acao" value="Cadastrar!"/>
 		</div><!--form-group-->
-		<?php var_dump($_SESSION)?>
+		<?php }?>
 
 	</form>
 

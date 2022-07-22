@@ -97,7 +97,7 @@
 				<span><?php echo $value['user'] ?></span>
 			</div><!--col-->
 			<div class="col">
-				<span><?php echo pegaCargo($value['cargo']); ?></span>
+				<span><?php echo $value['id']; ?></span>
 			</div><!--col-->
 			<div class="clear"></div>
 		</div><!--row-->
