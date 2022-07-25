@@ -10,32 +10,23 @@
 				$user_id = $_POST['user_id'];
 				$ativo_id = $_POST['ativos_id'];
 				$conteudo = $_POST['conteudo'];
-				$capa = $_FILES['capa'];
 
 				if($conteudo == ''){
 					Painel::alert('erro','Campos Vázios não são permitidos!');
-				}else if($capa['tmp_name'] == '' ){
-					Painel::alert('erro','A imagem de capa precisa ser selecionada.');
 				}else{
-					if(Painel::imagemValida($capa)){
-						$verifica = MySql::conectar()->prepare("SELECT * FROM `chamados` WHERE ativos_id = ?");
-						$verifica->execute(array($ativo_id));
-						if($verifica->rowCount() == 0){
-						$imagem = Painel::uploadFile($capa);
-						//$slug = Painel::generateSlug($titulo);
-						$arr = ['user_id' => $user_id, 'ativos_id'=>$ativo_id,'data'=>date('Y-m-d'),'conteudo'=>$conteudo,'capa'=>$imagem,
+					$verifica = MySql::conectar()->prepare("SELECT * FROM `chamados` WHERE ativos_id = ?");
+					$verifica->execute(array($ativo_id));
+					if(isset($verifica)){
+					
+						$arr = ['user_id' => $user_id, 'ativos_id'=>$ativo_id,'data'=>date('Y-m-d'),'conteudo'=>$conteudo,
 						'nome_tabela'=>'chamados'
 						];
 						if(Painel::insert($arr)){
 							Painel::redirect(INCLUDE_PATH.'cadastrar-chamado?sucesso');
 						}
 
-						//Painel::alert('sucesso','O cadastro da notícia foi realizado com sucesso!');
-						}else{
-							Painel::alert('erro','Já existe uma notícia com esse nome!');
-						}
 					}else{
-						Painel::alert('erro','Selecione uma imagem válida!');
+						Painel::alert('erro','Não foi possivel cadastrar!');
 					}
 					
 				}
@@ -58,10 +49,6 @@
 			</select>
 		</div>
 
-		<!-- <div class="form-group">
-			<label>Título:</label>
-			<input type="text" name="titulo" value="<?php recoverPost('titulo'); ?>">
-		</div>form-group -->
 
 		<div class="form-group">
 			<label>Descreva o chamado</label>
@@ -69,24 +56,19 @@
 		</div>
 
 
-		<div class="form-group">
-			<label>Imagem</label>
-			<input type="file" name="capa"/>
-		</div><!--form-group-->
-
-			<?php
-				$user = $_SESSION['user'];
-				$usuario = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user= ?");
-				$usuario->execute(array($user));
-				$usuario = $usuario->fetchAll();
-				foreach ($usuario as $key => $value) {
-			?>
+		<?php
+			$user = $_SESSION['user'];
+			$usuario = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user= ?");
+			$usuario->execute(array($user));
+			$usuario = $usuario->fetchAll();
+			foreach ($usuario as $key => $value) {
+		?>
 			
-		<div class="form-group">
-			<input type="hidden" name="nome_tabela" value="chamados" />
-			<input type="hidden" name="user_id" value="<?php echo $value['id']?>" />
-			<input type="submit" name="acao" value="Cadastrar!"/>
-		</div><!--form-group-->
+			<div class="form-group">
+				<input type="hidden" name="nome_tabela" value="chamados" />
+				<input type="hidden" name="user_id" value="<?php echo $value['id']?>" />
+				<input type="submit" name="acao" value="Cadastrar!"/>
+			</div><!--form-group-->
 		<?php }?>
 
 	</form>

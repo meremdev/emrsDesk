@@ -72,7 +72,7 @@
 
 </div><!--content-->
 
-<script src="../js/jquery.js"></script>
+<script src="<?php echo INCLUDE_PATH?>js/jquery.js"></script>
 <script src="<?php echo INCLUDE_PATH ?>js/jquery.mask.js"></script>
 <script src="<?php echo INCLUDE_PATH ?>js/main.js"></script>
  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
