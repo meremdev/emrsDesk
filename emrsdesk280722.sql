@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Jul-2022 às 04:56
+-- Tempo de geração: 28-Jul-2022 às 05:02
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 7.4.29
 
@@ -53,16 +53,21 @@ CREATE TABLE `chamados` (
   `ativos_id` int(11) NOT NULL,
   `data` datetime NOT NULL DEFAULT current_timestamp(),
   `conteudo` text NOT NULL,
-  `capa` varchar(255) DEFAULT NULL
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `chamados`
 --
 
-INSERT INTO `chamados` (`id`, `user_id`, `ativos_id`, `data`, `conteudo`, `capa`) VALUES
-(2, 3, 3, '2022-07-21 00:00:00', '<p>roteador desligou</p>', '62da0788595f9.png'),
-(3, 1, 2, '2022-07-21 00:00:00', '<p>muito lenta</p>', '62da0a5a07c7b.png');
+INSERT INTO `chamados` (`id`, `user_id`, `ativos_id`, `data`, `conteudo`, `status`) VALUES
+(2, 3, 3, '2022-07-21 00:00:00', '<p>roteador desligou</p>', 0),
+(3, 1, 2, '2022-07-21 00:00:00', '<p>muito lenta</p>', 0),
+(4, 1, 3, '2022-07-23 00:00:00', '<p>roteador n&atilde;o funciona</p>', 0),
+(5, 1, 1, '2022-07-23 00:00:00', '<p>n&atilde;o inicializa</p>', 0),
+(6, 3, 2, '2022-07-23 00:00:00', '<p>lenta</p>', 1),
+(7, 1, 1, '2022-07-23 00:00:00', '<p>computador n&atilde;o liga</p>', 0),
+(8, 3, 1, '2022-07-23 00:00:00', '<p>pegou fogo na placa</p>', 0);
 
 -- --------------------------------------------------------
 
@@ -351,7 +356,7 @@ ALTER TABLE `ativos`
 -- AUTO_INCREMENT de tabela `chamados`
 --
 ALTER TABLE `chamados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tb_admin.online`

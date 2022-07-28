@@ -15,7 +15,7 @@
 	// }
 
 	$paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-	$porPagina = 4;
+	$porPagina = 6;
 	
 	$chamados = Painel::selectAll('chamados',($paginaAtual - 1) * $porPagina,$porPagina);
 	
@@ -30,6 +30,8 @@
 			<td>Descriçao</td>
 			<td>#</td>
 			<td>#</td>
+			<td>#</td>
+			<td>#</td>
 			
 		</tr>
 
@@ -42,7 +44,17 @@
 			<td><?php echo $usuario; ?></td>
 			<td><?php echo $nomeAtivo; ?></td>
 			<td><?php echo $value['conteudo']; ?></td>
-			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>editar-noticia?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Editar</a></td>
+			<td><?php echo date('d/m/Y H:i:s',strtotime($value['data'])); ?></td>
+			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>finalizar-chamado?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Verificar </a></td>
+			<td>
+				<?php
+					if($value['status'] == 1){
+						echo '<a class="btn order">Finalizado</a>';
+					}else{
+						echo '<a class="btn delete">em aberto</a>';
+					}
+				?>
+			</td>
 			<td><a actionBtn="delete" class="btn delete" href="<?php echo INCLUDE_PATH ?>gerenciar-chamados?excluir=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Excluir</a></td>
 		</tr>
 

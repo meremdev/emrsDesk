@@ -12,16 +12,39 @@
 
 			<td>Ativo</td>
 			<td>Descriçao</td>
+			<td>Data</td>
+			<td>Status</td>
 			
 		</tr>
 
 		<?php
-			$porPagina = 1;
+			$porPagina = 3;
 			
 			$query = "SELECT * FROM `chamados`";
 			if(isset($user['id'])){
-				$query.="WHERE user_id = $user[id] ORDER BY id DESC";
+				$query.="WHERE user_id = $user[id]";
+
+				$totalPaginas = MySql::conectar()->prepare($query);
+				$totalPaginas->execute();
+				$totalPaginas = ceil($totalPaginas->rowCount() / $porPagina);
+
+				if(isset($_GET['pagina'])){
+					$pagina = (int)$_GET['pagina'];
+					if($pagina < $totalPaginas){
+						$pagina = 1;
+					}
+
+	
+					$queryPg = ($pagina - 1) * $porPagina;
+					$query.=" ORDER BY id DESC LIMIT $queryPg,$porPagina";					
+				}else{
+					$pagina = 1;
+					$query.=" ORDER BY id ASC LIMIT 0,$porPagina";
+				}
 			}
+
+			
+
 			$sql = MySql::conectar()->prepare($query);
 			$sql->execute();
 			$chamados = $sql->fetchAll();
@@ -32,6 +55,15 @@
 		<tr>
 			<td><?php echo $nomeAtivo; ?></td>
 			<td><?php echo $value['conteudo']; ?></td>
+			<td><?php echo date('d/m/Y - H:i:s',strtotime($value['data'])); ?></td>
+			<td><?php 
+					if($value['status'] == 1){
+						echo '<a class="btn order">Finalizado</a>';
+					}else{
+						echo '<a class="btn delete">em aberto</a>';
+					}  
+				?>
+			</td>
 		</tr>
 
 		<?php } ?>
@@ -43,12 +75,12 @@
 		<?php
 			// $totalPaginas = ceil(count(Painel::selectAll('chamados')) / $porPagina);
 
-			// for($i = 1; $i <= $totalPaginas; $i++){
-			// 	if($i == $paginaAtual)
-			// 		echo '<a class="page-selected" href="'.INCLUDE_PATH.'visualizar-Chamados?pagina='.$i.'">'.$i.'</a>';
-			// 	else
-			// 		echo '<a href="'.INCLUDE_PATH.'visualizar-chamados?pagina='.$i.'">'.$i.'</a>';
-			// }
+			for($i = 1; $i <= $totalPaginas; $i++){
+				if($pagina == $i )
+					echo '<a class="page-selected" href="'.INCLUDE_PATH.'visualizar-Chamados?pagina='.$i.'">'.$i.'</a>';
+				else
+					echo '<a href="'.INCLUDE_PATH.'visualizar-chamados?pagina='.$i.'">'.$i.'</a>';
+			}
 
 		?>
 	</div><!--paginacao-->
