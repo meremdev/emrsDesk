@@ -12,7 +12,8 @@
 <div class="box-content">
 	<h2><i class="fa fa-pencil"></i>finalizar chamado de <?php foreach($user as $key => $value){
 		if($value['id'] == $chamado['user_id']){
-			
+
+			$user_id =  $value['nome'];
 			echo $value['user']. "\n";
 			echo date('d/m/Y - H:i:s', strtotime($chamado['data']));
 		} 
@@ -37,7 +38,9 @@
 
 		<div class="form-group">
 			<label>representante</label>
-			<?php echo $value['nome'] ?>
+			<?php
+				echo $user_id;
+			?>
 		</div>
 
 		<div class="form-group">

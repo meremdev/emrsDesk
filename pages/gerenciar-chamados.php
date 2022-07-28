@@ -28,7 +28,7 @@
 			<td>Departamento</td>
 			<td>Ativo</td>
 			<td>Descriçao</td>
-			<td>#</td>
+			<td>Data</td>
 			<td>#</td>
 			<td>#</td>
 			<td>#</td>

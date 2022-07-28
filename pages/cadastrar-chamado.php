@@ -10,6 +10,7 @@
 				$user_id = $_POST['user_id'];
 				$ativo_id = $_POST['ativos_id'];
 				$conteudo = $_POST['conteudo'];
+				$status = $_POST['status'];
 
 				if($conteudo == ''){
 					Painel::alert('erro','Campos Vázios não são permitidos!');
@@ -18,7 +19,7 @@
 					$verifica->execute(array($ativo_id));
 					if(isset($verifica)){
 					
-						$arr = ['user_id' => $user_id, 'ativos_id'=>$ativo_id,'data'=>date('Y-m-d'),'conteudo'=>$conteudo,
+						$arr = ['user_id' => $user_id, 'ativos_id'=>$ativo_id,'data'=>date('Y-m-d'),'conteudo'=>$conteudo, 'status'=>$status,
 						'nome_tabela'=>'chamados'
 						];
 						if(Painel::insert($arr)){
@@ -66,6 +67,7 @@
 			
 			<div class="form-group">
 				<input type="hidden" name="nome_tabela" value="chamados" />
+				<input type="hidden" name="status" value="0" />
 				<input type="hidden" name="user_id" value="<?php echo $value['id']?>" />
 				<input type="submit" name="acao" value="Cadastrar!"/>
 			</div><!--form-group-->
