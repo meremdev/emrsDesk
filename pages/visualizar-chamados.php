@@ -56,7 +56,8 @@
 			<td><?php echo $nomeAtivo; ?></td>
 			<td><?php echo $value['conteudo']; ?></td>
 			<td><?php echo date('d/m/Y - H:i:s',strtotime($value['data'])); ?></td>
-			<td><?php 
+			<td>
+				<?php 
 					if($value['status'] == 1){
 						echo '<a class="btn order">Finalizado</a>';
 					}else{

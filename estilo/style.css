@@ -12,6 +12,7 @@ input[type=password],
 textarea{
 	-webkit-appearance: none;
 	border-radius: 0;
+	
 }
 
 html,body{
@@ -384,6 +385,33 @@ a.btn.order{background: #0091ea;}
 	float: left;
 	width: 50%;
 }
+
+.col-form{
+	width: 30%;
+	display: flex;
+	justify-content: center;
+}
+
+.col-form label{
+	margin: auto 0;
+}
+
+.relatorio{
+	display: flex;
+	flex-direction: row;
+}
+
+.col-form input{
+	margin: 18px;
+}
+
+
+
+
+
+
+
+
 
 
 /*Formulários de contato do box-content*/
