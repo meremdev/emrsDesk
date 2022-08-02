@@ -1,8 +1,9 @@
 <div class="box-content">
-	<h2><i class="fa fa-pencil"></i>Relatorio mensal</h2>
+	<h2><i class="fa fa-pencil"></i>Relatorio</h2>
 
 	<form class="relatorio" method="post" enctype="multipart/form-data">
         <?php
+
             $periodo = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
             if(isset($_POST['acao'])){
@@ -13,16 +14,23 @@
                 $sql->bindParam(':fim', $periodo['fim']);
                 $sql->execute();
                 $chamados = $sql->fetchAll();
-            }
+            }else{
+				$query = "SELECT * FROM chamados WHERE status= 1";
+                $sql = MySql::conectar()->prepare($query);
+                $sql->bindParam(':inicio', $periodo['inicio']);
+                $sql->bindParam(':fim', $periodo['fim']);
+                $sql->execute();
+                $chamados = $sql->fetchAll();
+			}
         ?>
 		<div class="col-form">
 			<label>Data inicio</label>
-			<input type="date" name="inicio" value="<?php echo $periodo['inicio']?>">
+			<input type="date" name="inicio" value="<?php echo $periodo['inicio'] ?>">
 		</div><!--form-group-->
 
         <div class="col-form">
 			<label>Data final</label>
-			<input type="date" name="fim" value="<?php echo $periodo['fim']?>">
+			<input type="date" name="fim" value="<?php echo $periodo['fim'] ?>">
 		</div><!--form-group-->
 
 		<div class="col-form">
@@ -69,5 +77,23 @@
 		<?php } ?>
 
 	</table>
+
+	<form method="post">
+		<?php
+			require './classes/dompdf/autoload.inc.php';
+			use Dompdf\Dompdf;
+
+			if(isset($_POST['gerar'])){
+				$pdf = new Dompdf();
+				
+				$pdf->loadHtml('relatorios.php');
+
+
+			}
+		?>
+		<input type="submit" name="gerar" value="Gerar PDF">
+	</form>
+
+	
 
 </div><!--box-content-->
