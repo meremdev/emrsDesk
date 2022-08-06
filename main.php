@@ -37,11 +37,15 @@
 	<div class="items-menu">
 		<h2>Chamados</h2>
 		<a <?php selecionadoMenu('cadastrar-chamdo'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado">Registrar</a>
+		
 		<a <?php selecionadoMenu('visualizar-chamdos'); ?> href="<?php echo INCLUDE_PATH ?>visualizar-chamados">Visualizar</a>
 		<a <?php selecionadoMenu('cadastrar-ativo'); ?>  <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-ativo">Cadastrar Ativos</a>
 		<a <?php selecionadoMenu('gerenciar-ativos'); ?>  <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-ativos">Gerenciar Ativos</a>
 		<a <?php selecionadoMenu('gerenciar-chamados'); ?>  <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>gerenciar-chamados">Gerenciar Chamados</a>
+		<h2>Relatorios</h2>
+		<a <?php selecionadoMenu('cadastrar-chamado-tec'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado-tec">Cadastrar RAT</a>
 		<a <?php selecionadoMenu('relatorios'); ?>  <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>relatorios">Relatorios</a>
+
 		<h2>Administração do painel</h2>
 		<a <?php selecionadoMenu('editar-usuario'); ?> href="<?php echo INCLUDE_PATH ?>editar-usuario">Editar Usuário</a>
 		<a <?php selecionadoMenu('adicionar-usuario'); ?> <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>adicionar-usuario">Adicionar Usuário</a>

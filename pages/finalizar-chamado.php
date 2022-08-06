@@ -29,7 +29,7 @@
 			if(isset($_POST['acao'])){
 				if(Painel::update($_POST)){
 					Painel::alert('sucesso','O chamado foi finalizado com sucesso!');
-					$depoimento = Painel::select('tb_site.depoimentos','id = ?',array($id));
+					//$depoimento = Painel::select('tb_site.depoimentos','id = ?',array($id));
 				}else{
 					Painel::alert('erro','Campos vázios não são permitidos.');
 				}
@@ -59,13 +59,28 @@
 			<?php echo $chamado['conteudo'] ?>
 		</div>
 
-			
 		<div class="form-group">
-			<input type="hidden" name="nome_tabela" value="chamados" />
-			<input type="hidden" name="status" value="1" />
-			<input type="hidden" name="id" value="<?php echo $id?>" />
-			<input type="submit" name="acao" value="Finalizar"/>
-		</div><!--form-group-->
+			<label>Resolução</label>
+			<textarea class="tinymce" name="resposta"><?php recoverPost('resposta'); ?></textarea>
+		</div>
+
+
+		
+		<?php
+			$user = $_SESSION['user'];
+			$usuario = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user= ?");
+			$usuario->execute(array($user));
+			$usuario = $usuario->fetchAll();
+			foreach ($usuario as $key => $value) {
+		?>
+			<div class="form-group">
+				<input type="hidden" name="nome_tabela" value="chamados" />
+				<input type="hidden" name="status" value="1" />
+				<input type="hidden" name="id" value="<?php echo $id?>" />
+				<input type="hidden" name="tec_id" value="<?php echo $value['id'] ?>" />
+				<input type="submit" name="acao" value="Finalizar"/>
+			</div><!--form-group-->
+		<?php }?>
 
 	</form>
 

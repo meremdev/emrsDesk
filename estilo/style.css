@@ -396,10 +396,7 @@ a.btn.order{background: #0091ea;}
 	margin: auto 0;
 }
 
-.relatorio{
-	display: flex;
-	flex-direction: row;
-}
+
 
 .col-form input{
 	margin: 18px;
@@ -526,6 +523,122 @@ a.btn.order{background: #0091ea;}
 form .form-group-login:nth-of-type(2){
 	position: relative;
 	top: 10px;
+}
+
+
+/* config relatorio */
+
+.relatorio{
+	display: flex;
+	flex-direction: row;
+}
+
+.rat form{
+	margin-top: -15px;
+	margin-bottom: -15px;
+}
+
+.rat{
+	background-color: #ccc;
+}
+
+.rats{
+	background-color: white;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	
+	
+	
+}
+
+.rats span{
+	font-weight: bold;
+}
+
+.rats div{
+	justify-content: center;
+}
+
+.rat_header div{
+	border: 2px solid #00bfa5 ;
+	width: 350px;
+	padding: 20px;
+	margin-bottom: 5px;
+
+}
+
+.rat_descr{
+	display: flex;
+	flex-direction: row;
+}
+
+.rat_descr div{
+	border: 2px solid #00bfa5 ;
+	width: 350px;
+	padding: 50px;
+
+}
+
+.rat_logo{
+	width: 700px;
+	margin: 0 auto;
+}
+
+
+.rat_cli{
+	margin-top: 15px;
+	border: 2px solid #00bfa5 ;
+	width: 700px;
+	margin: 5px auto;
+	padding: 20px;
+}
+
+.rat_unit{
+	margin-top: 15px;
+	border: 2px solid #00bfa5 ;
+	width: 700px;
+	margin: 5px auto;
+	padding: 20px;
+}
+
+.rat_dep{
+	margin-top: 15px;
+	border: 2px solid #00bfa5 ;
+	width: 700px;
+	margin: 5px auto;
+	padding: 30px;
+}
+
+
+.rat_ativo{
+	margin-top: 15px;
+	border: 2px solid #00bfa5 ;
+	width: 700px;
+	margin: 9px auto;
+	padding: 20px;
+
+}
+
+.rat_void{
+	border: 2px solid #00bfa5 ;
+	width: 700px;
+	margin: 5px auto;
+	padding: 37px;
+}
+
+
+.rat_header{
+	display: flex;
+	flex-direction: row;
+	margin-top:-60px ;
+	
+}
+
+.rat_title{
+	text-align: center;
 }
 
 @media screen and (max-width: 1024px){

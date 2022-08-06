@@ -25,6 +25,7 @@
 	<div class="wraper-table">
 	<table>
 		<tr>
+			<td>Tecnico</td>
 			<td>Departamento</td>
 			<td>Ativo</td>
 			<td>Descriçao</td>
@@ -37,10 +38,12 @@
 
 		<?php
 			foreach ($chamados as $key => $value) {
+			$tecnico = Painel::select('tb_admin.usuarios','id=?', array($value['tec_id']))['nome'];	
 			$usuario = Painel::select('tb_admin.usuarios','id=?',array($value['user_id']))['user'];
 			$nomeAtivo = Painel::select('ativos','id=?',array($value['ativos_id']))['nome'];
 		?>
 		<tr>
+			<td><?php echo $tecnico; ?></td>
 			<td><?php echo $usuario; ?></td>
 			<td><?php echo $nomeAtivo; ?></td>
 			<td><?php echo $value['conteudo']; ?></td>
