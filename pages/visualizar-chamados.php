@@ -30,7 +30,7 @@
 
 				if(isset($_GET['pagina'])){
 					$pagina = (int)$_GET['pagina'];
-					if($pagina < $totalPaginas){
+					if($pagina > $totalPaginas){
 						$pagina = 1;
 					}
 

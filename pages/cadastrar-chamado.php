@@ -7,19 +7,23 @@
 
 			if(isset($_POST['acao'])){
 
+				$tec_id = $_POST['tec_id'];
 				$user_id = $_POST['user_id'];
 				$ativo_id = $_POST['ativos_id'];
 				$conteudo = $_POST['conteudo'];
+				$resposta = $_POST['resposta'];
 				$status = $_POST['status'];
+
+				
 
 				if($conteudo == ''){
 					Painel::alert('erro','Campos Vázios não são permitidos!');
 				}else{
-					$verifica = MySql::conectar()->prepare("SELECT * FROM `chamados` WHERE ativos_id = ?");
+					$verifica = MySql::conectar()->prepare("SELECT user_id FROM `chamados` WHERE ativos_id = ?");
 					$verifica->execute(array($ativo_id));
 					if(isset($verifica)){
 					
-						$arr = ['user_id' => $user_id, 'ativos_id'=>$ativo_id,'data'=>date('Y-m-d'),'conteudo'=>$conteudo, 'status'=>$status,
+						$arr = ['tec_id' => $tec_id, 'user_id' => $user_id, 'ativos_id'=>$ativo_id, 'data'=>date('Y-m-d'), 'conteudo'=>$conteudo, 'resposta' => $resposta, 'status'=>$status,
 						'nome_tabela'=>'chamados'
 						];
 						if(Painel::insert($arr)){
@@ -69,6 +73,8 @@
 				<input type="hidden" name="nome_tabela" value="chamados" />
 				<input type="hidden" name="status" value="0" />
 				<input type="hidden" name="user_id" value="<?php echo $value['id']?>" />
+				<input type="hidden" name="tec_id" value="0" />
+				<input type="hidden" name="resposta" value="0" />
 				<input type="submit" name="acao" value="Cadastrar!"/>
 			</div><!--form-group-->
 		<?php }?>

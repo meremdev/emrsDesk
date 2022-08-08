@@ -38,7 +38,8 @@
 
 		<?php
 			foreach ($chamados as $key => $value) {
-			$tecnico = Painel::select('tb_admin.usuarios','id=?', array($value['tec_id']))['nome'];	
+				
+			@$tecnico = Painel::select('tb_admin.usuarios','id=?', array($value['tec_id']))['nome'];	
 			$usuario = Painel::select('tb_admin.usuarios','id=?',array($value['user_id']))['user'];
 			$nomeAtivo = Painel::select('ativos','id=?',array($value['ativos_id']))['nome'];
 		?>
