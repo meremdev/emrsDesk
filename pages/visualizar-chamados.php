@@ -39,7 +39,7 @@
 					$query.=" ORDER BY id DESC LIMIT $queryPg,$porPagina";					
 				}else{
 					$pagina = 1;
-					$query.=" ORDER BY id ASC LIMIT 0,$porPagina";
+					$query.=" ORDER BY id DESC LIMIT 0,$porPagina";
 				}
 			}
 
