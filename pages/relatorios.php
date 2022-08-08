@@ -95,7 +95,7 @@
 				<p><?php echo $nomeAtivo;?><p>
 			</div>
 
-			<div class="rat_void"></div>
+			<!-- <div class="rat_void"></div> -->
 
 		</div>
 

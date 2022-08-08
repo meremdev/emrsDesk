@@ -564,7 +564,7 @@ form .form-group-login:nth-of-type(2){
 
 .rat_header div{
 	border: 2px solid #00bfa5 ;
-	width: 350px;
+	width: 300px;
 	padding: 20px;
 	margin-bottom: 5px;
 
@@ -577,13 +577,13 @@ form .form-group-login:nth-of-type(2){
 
 .rat_descr div{
 	border: 2px solid #00bfa5 ;
-	width: 350px;
+	width: 300px;
 	padding: 50px;
 
 }
 
 .rat_logo{
-	width: 700px;
+	width: 600px;
 	margin: 0 auto;
 }
 
@@ -591,7 +591,7 @@ form .form-group-login:nth-of-type(2){
 .rat_cli{
 	margin-top: 15px;
 	border: 2px solid #00bfa5 ;
-	width: 700px;
+	width: 600px;
 	margin: 5px auto;
 	padding: 20px;
 }
@@ -599,7 +599,7 @@ form .form-group-login:nth-of-type(2){
 .rat_unit{
 	margin-top: 15px;
 	border: 2px solid #00bfa5 ;
-	width: 700px;
+	width: 600px;
 	margin: 5px auto;
 	padding: 20px;
 }
@@ -607,7 +607,7 @@ form .form-group-login:nth-of-type(2){
 .rat_dep{
 	margin-top: 15px;
 	border: 2px solid #00bfa5 ;
-	width: 700px;
+	width: 600px;
 	margin: 5px auto;
 	padding: 30px;
 }
@@ -616,7 +616,7 @@ form .form-group-login:nth-of-type(2){
 .rat_ativo{
 	margin-top: 15px;
 	border: 2px solid #00bfa5 ;
-	width: 700px;
+	width: 600px;
 	margin: 9px auto;
 	padding: 20px;
 
@@ -624,7 +624,7 @@ form .form-group-login:nth-of-type(2){
 
 .rat_void{
 	border: 2px solid #00bfa5 ;
-	width: 700px;
+	width: 600px;
 	margin: 5px auto;
 	padding: 37px;
 }
