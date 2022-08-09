@@ -5,9 +5,9 @@
 
 		
 		public static $cargos = [
-		'0' => 'Normal',
-		'1' => 'Sub Administrador',
-		'2' => 'Administrador'];
+		'0' => 'USUARIO',
+		'1' => 'TECNICO',
+		'2' => 'ADIMINISTRADOR'];
 		
 
 		public static function generateSlug($str){
@@ -50,17 +50,6 @@
 			}
 		}
 
-		public static function listarUsuariosOnline(){
-			self::limparUsuariosOnline();
-			$sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.online`");
-			$sql->execute();
-			return $sql->fetchAll();
-		}
-
-		public static function limparUsuariosOnline(){
-			$date = date('Y-m-d H:i:s');
-			$sql = MySql::conectar()->exec("DELETE FROM `tb_admin.online` WHERE ultima_acao < '$date' - INTERVAL 1 MINUTE");
-		}
 
 		public static function alert($tipo,$mensagem){
 			if($tipo == 'sucesso'){

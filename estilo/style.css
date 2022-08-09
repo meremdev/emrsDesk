@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Open Sans";
+	text-transform: uppercase;
 }
 
 input[type=text],
@@ -12,6 +13,7 @@ input[type=password],
 textarea{
 	-webkit-appearance: none;
 	border-radius: 0;
+	text-transform: uppercase;
 	
 }
 
@@ -269,6 +271,7 @@ table{
 	margin:20px 0;
 	width: 100%;
 	border-collapse: collapse;
+	font-size: 12px;
 }
 
 table tr:nth-of-type(1){
@@ -292,7 +295,7 @@ table td{
 
 table a.btn{
 	font-weight: normal;
-	font-size: 13px;
+	font-size: 12px;
 	color: white;
 	text-decoration: none;
 	padding: 4px 6px;

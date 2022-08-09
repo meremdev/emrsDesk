@@ -57,7 +57,7 @@
 
 		<div class="form-group">
 			<label>Descreva o chamado</label>
-			<textarea class="tinymce" name="conteudo"><?php recoverPost('conteudo'); ?></textarea>
+			<textarea class="" name="conteudo"><?php recoverPost('conteudo'); ?></textarea>
 		</div>
 
 

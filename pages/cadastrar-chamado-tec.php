@@ -67,12 +67,12 @@
 
 		<div class="form-group">
 			<label>Descreva o chamado</label>
-			<textarea class="tinymce" name="conteudo"><?php recoverPost('conteudo'); ?></textarea>
+			<textarea class="" name="conteudo"><?php recoverPost('conteudo'); ?></textarea>
 		</div>
 
 		<div class="form-group">
 			<label>Resolução</label>
-			<textarea class="tinymce" name="resposta"><?php recoverPost('resposta'); ?></textarea>
+			<textarea class="" name="resposta"><?php recoverPost('resposta'); ?></textarea>
 		</div>
 
 

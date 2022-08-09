@@ -39,8 +39,8 @@
 		?>
 		<tr>
 			<td><?php echo $value['nome']; ?></td>
-			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>editar-categoria?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Editar</a></td>
-			<td><a actionBtn="delete" class="btn delete" href="<?php echo INCLUDE_PATH ?>gerenciar-categorias?excluir=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Excluir</a></td>
+			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>editar-ativos?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Editar</a></td>
+			<td><a actionBtn="delete" class="btn delete" href="<?php echo INCLUDE_PATH ?>gerenciar-ativos?excluir=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Excluir</a></td>
 		</tr>
 
 		<?php } ?>
@@ -50,13 +50,13 @@
 
 	<div class="paginacao">
 		<?php
-			$totalPaginas = ceil(count(Painel::selectAll('tb_site.categorias')) / $porPagina);
+			$totalPaginas = ceil(count(Painel::selectAll('ativos')) / $porPagina);
 
 			for($i = 1; $i <= $totalPaginas; $i++){
 				if($i == $paginaAtual)
-					echo '<a class="page-selected" href="'.INCLUDE_PATH.'gerenciar-categorias?pagina='.$i.'">'.$i.'</a>';
+					echo '<a class="page-selected" href="'.INCLUDE_PATH.'gerenciar-ativos?pagina='.$i.'">'.$i.'</a>';
 				else
-					echo '<a href="'.INCLUDE_PATH.'gerenciar-categorias?pagina='.$i.'">'.$i.'</a>';
+					echo '<a href="'.INCLUDE_PATH.'gerenciar-ativos?pagina='.$i.'">'.$i.'</a>';
 			}
 
 		?>
