@@ -15,7 +15,7 @@
 
 			$user_id =  $value['nome'];
 			echo $value['user']. "\n";
-			echo date('d/m/Y - H:i:s', strtotime($chamado['data']));
+			echo date('d/m/Y', strtotime($chamado['data']));
 		} 
 	} ?> </h2>
 
@@ -61,7 +61,7 @@
 
 		<div class="form-group">
 			<label>Resolução</label>
-			<textarea class="tinymce" name="resposta"><?php recoverPost('resposta'); ?></textarea>
+			<textarea class="" name="resposta"><?php recoverPost('resposta'); ?></textarea>
 		</div>
 
 

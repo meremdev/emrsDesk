@@ -1,11 +1,6 @@
 <?php
 	if(isset($_GET['excluir'])){
 		$idExcluir = intval($_GET['excluir']);
-		$selectImagem = MySql::conectar()->prepare("SELECT capa FROM `chamados` WHERE id = ?");
-		$selectImagem->execute(array($_GET['excluir']));
-
-		$imagem = $selectImagem->fetch()['capa'];
-		Painel::deleteFile($imagem);
 		Painel::deletar('chamados',$idExcluir);
 		Painel::redirect(INCLUDE_PATH.'gerenciar-chamados');
 	}
@@ -15,7 +10,7 @@
 	// }
 
 	$paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-	$porPagina = 6;
+	$porPagina = 50;
 	
 	$chamados = Painel::selectAll('chamados',($paginaAtual - 1) * $porPagina,$porPagina);
 	
@@ -48,7 +43,7 @@
 			<td><?php echo $usuario; ?></td>
 			<td><?php echo $nomeAtivo; ?></td>
 			<td><?php echo $value['conteudo']; ?></td>
-			<td><?php echo date('d/m/Y H:i:s',strtotime($value['data'])); ?></td>
+			<td><?php echo date('d/m/Y',strtotime($value['data'])); ?></td>
 			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>finalizar-chamado?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Verificar </a></td>
 			<td>
 				<?php

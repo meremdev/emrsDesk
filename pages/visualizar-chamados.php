@@ -18,7 +18,7 @@
 		</tr>
 
 		<?php
-			$porPagina = 3;
+			$porPagina = 50;
 			
 			$query = "SELECT * FROM `chamados`";
 			if(isset($user['id'])){
@@ -55,7 +55,7 @@
 		<tr>
 			<td><?php echo $nomeAtivo; ?></td>
 			<td><?php echo $value['conteudo']; ?></td>
-			<td><?php echo date('d/m/Y - H:i:s',strtotime($value['data'])); ?></td>
+			<td><?php echo date('d/m/Y',strtotime($value['data'])); ?></td>
 			<td>
 				<?php 
 					if($value['status'] == 1){

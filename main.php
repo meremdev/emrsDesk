@@ -18,17 +18,11 @@
 <div class="menu">
 	<div class="menu-wraper">
 	<div class="box-usuario">
-		<?php
-			if($_SESSION['img'] == ''){
-		?>
+		
 			<div class="avatar-usuario">
 				<i class="fa fa-user"></i>
 			</div><!--avatar-usuario-->
-		<?php }else{ ?>
-			<div class="imagem-usuario">
-				<img src="<?php echo INCLUDE_PATH ?>uploads/<?php echo $_SESSION['img']; ?>" />
-			</div><!--avatar-usuario-->
-		<?php } ?>
+		
 		<div class="nome-usuario">
 			<p><?php echo $_SESSION['user']; ?></p>
 			<p><?php echo $_SESSION['nome']; ?></p>
@@ -36,8 +30,7 @@
 	</div><!--box-usuario-->
 	<div class="items-menu">
 		<h2>Chamados</h2>
-		<a <?php selecionadoMenu('cadastrar-chamdo'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado">Registrar</a>
-		
+		<a <?php selecionadoMenu('cadastrar-chamdo'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado">Registrar</a>	
 		<a <?php selecionadoMenu('visualizar-chamdos'); ?> href="<?php echo INCLUDE_PATH ?>visualizar-chamados">Visualizar</a>
 		<a <?php selecionadoMenu('cadastrar-ativo'); ?>  <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-ativo">Cadastrar Ativos</a>
 		<a <?php selecionadoMenu('gerenciar-ativos'); ?>  <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-ativos">Gerenciar Ativos</a>
