@@ -7,19 +7,19 @@
 		<div class="box-metricas">
 			<div class="box-metrica-single">
 				<div class="box-metrica-wraper">
-					<h2>Chamados diario</h2>
-					<p><?php ?></p>
-				</div><!--box-metrica-wraper-->
-			</div><!--box-metrica-single-->
-			<div class="box-metrica-single">
-				<div class="box-metrica-wraper">
-					<h2>Chamados mensais</h2>
+					<h2>chamados mensais</h2>
 					<p><?php ?></p>
 				</div><!--box-metrica-wraper-->
 			</div><!--box-metrica-single-->
 			<div class="box-metrica-single">
 				<div class="box-metrica-wraper">
 					<h2>Total de chamados</h2>
+					<p><?php ?></p>
+				</div><!--box-metrica-wraper-->
+			</div><!--box-metrica-single-->
+			<div class="box-metrica-single">
+				<div class="box-metrica-wraper">
+					<h2>chamados do dia</h2>
 					<p><?php ?></p>
 				</div><!--box-metrica-wraper-->
 			</div><!--box-metrica-single-->
@@ -30,7 +30,7 @@
 
 
 <div class="box-content w100 right">
-	<h2><i class="fa fa-rocket" aria-hidden="true"></i> Usuários do Sistema</h2>
+	<h2><i class="fa fa-rocket" aria-hidden="true"></i> Usuários do Painel</h2>
 
 	<div class="table-responsive">
 		<div class="row">
@@ -55,7 +55,7 @@
 				<span><?php echo $value['user'] ?></span>
 			</div><!--col-->
 			<div class="col">
-				<span><?php echo $value['cargo']; ?></span>
+				<span><?php echo $value['id']; ?></span>
 			</div><!--col-->
 			<div class="clear"></div>
 		</div><!--row-->

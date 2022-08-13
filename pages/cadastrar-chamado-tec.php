@@ -20,11 +20,12 @@
 					$verifica = MySql::conectar()->prepare("SELECT * FROM `chamados` WHERE ativos_id = ?");
 					$verifica->execute(array($ativo_id));
 					if(isset($verifica)){
-						$arr = ['tec_id' => $tec_id, 'user_id' => $user_id, 'ativos_id'=>$ativo_id,'data'=>$data,'conteudo'=>$conteudo, 'resposta' => $resposta , 'status'=>$status,
+					
+						$arr = ['tec_id' => $tec_id, 'user_id' => $user_id, 'ativos_id'=>$ativo_id, 'data'=>$data,'conteudo'=>$conteudo, 'resposta' => $resposta , 'status'=>$status,
 						'nome_tabela'=>'chamados'
 						];
 						if(Painel::insert($arr)){
-							Painel::redirect(INCLUDE_PATH.'cadastrar-chamado?sucesso');
+							Painel::redirect(INCLUDE_PATH.'cadastrar-chamado-tec?sucesso');
 						}
 
 					}else{
@@ -39,6 +40,7 @@
 				Painel::alert('sucesso','O cadastro foi realizado com sucesso!');
 			}
 		?>
+		
 		<div class="form-group">
 			<label>Data</label>
 			<input type="date" name="data" value="<?php echo date('Y-m-d')?>" id="">

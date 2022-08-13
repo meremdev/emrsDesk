@@ -15,7 +15,7 @@
 
 			$user_id =  $value['nome'];
 			echo $value['user']. "\n";
-			echo date('d/m/Y', strtotime($chamado['data']));
+			echo date('d/m/Y - H:i:s', strtotime($chamado['data']));
 		} 
 	} ?> </h2>
 

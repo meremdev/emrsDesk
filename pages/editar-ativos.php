@@ -19,10 +19,10 @@
 				$verificar->execute(array($_POST['nome'],$id));
 				$info = $verificar->fetch();
 				if($verificar->rowCount() == 1){
-					Painel::alert("erro",'Já existe um ativo com este nome!');
+					Painel::alert("erro",'Já existe um Ativo com este nome!');
 				}else{
 				if(Painel::update($arr)){
-					Painel::alert('sucesso','A ativo foi editado com sucesso!');
+					Painel::alert('sucesso','O Ativo foi editado com sucesso!');
 					$ativo = Painel::select('ativos','id = ?',array($id));
 				}else{
 					Painel::alert('erro','Campos vázios não são permitidos.');
@@ -32,7 +32,7 @@
 		?>
 
 		<div class="form-group">
-			<label>Ativo:</label>
+			<label>Categoria:</label>
 			<input type="text" name="nome" value="<?php echo $ativo['nome']; ?>">
 		</div><!--form-group-->
 

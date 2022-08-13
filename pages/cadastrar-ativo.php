@@ -1,5 +1,5 @@
 <div class="box-content">
-	<h2><i class="fa fa-pencil"></i> Cadastrar Categoria</h2>
+	<h2><i class="fa fa-pencil"></i> Cadastrar Ativo</h2>
 
 	<form method="post" enctype="multipart/form-data">
 

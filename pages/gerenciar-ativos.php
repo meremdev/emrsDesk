@@ -19,7 +19,7 @@
 	// }
 
 	$paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-	$porPagina = 4;
+	$porPagina = 50;
 	
 	$ativos = Painel::selectAll('ativos',($paginaAtual - 1) * $porPagina,$porPagina);
 	

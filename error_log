@@ -1,0 +1,40 @@
+[10-Aug-2022 11:58:37 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'capa' in 'field list' in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php:5
+Stack trace:
+#0 /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php(5): PDOStatement->execute(Array)
+#1 /home/emrstecc/public_html/painel/classes/Painel.php(43): include('/home/emrstecc/...')
+#2 /home/emrstecc/public_html/painel/main.php(73): Painel::carregarPagina()
+#3 /home/emrstecc/public_html/painel/index.php(8): include('/home/emrstecc/...')
+#4 {main}
+  thrown in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php on line 5
+[10-Aug-2022 11:58:45 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'capa' in 'field list' in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php:5
+Stack trace:
+#0 /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php(5): PDOStatement->execute(Array)
+#1 /home/emrstecc/public_html/painel/classes/Painel.php(43): include('/home/emrstecc/...')
+#2 /home/emrstecc/public_html/painel/main.php(73): Painel::carregarPagina()
+#3 /home/emrstecc/public_html/painel/index.php(8): include('/home/emrstecc/...')
+#4 {main}
+  thrown in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php on line 5
+[10-Aug-2022 11:58:50 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'capa' in 'field list' in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php:5
+Stack trace:
+#0 /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php(5): PDOStatement->execute(Array)
+#1 /home/emrstecc/public_html/painel/classes/Painel.php(43): include('/home/emrstecc/...')
+#2 /home/emrstecc/public_html/painel/main.php(73): Painel::carregarPagina()
+#3 /home/emrstecc/public_html/painel/index.php(8): include('/home/emrstecc/...')
+#4 {main}
+  thrown in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php on line 5
+[10-Aug-2022 11:59:02 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'capa' in 'field list' in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php:5
+Stack trace:
+#0 /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php(5): PDOStatement->execute(Array)
+#1 /home/emrstecc/public_html/painel/classes/Painel.php(43): include('/home/emrstecc/...')
+#2 /home/emrstecc/public_html/painel/main.php(73): Painel::carregarPagina()
+#3 /home/emrstecc/public_html/painel/index.php(8): include('/home/emrstecc/...')
+#4 {main}
+  thrown in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php on line 5
+[10-Aug-2022 11:59:20 America/Sao_Paulo] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'capa' in 'field list' in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php:5
+Stack trace:
+#0 /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php(5): PDOStatement->execute(Array)
+#1 /home/emrstecc/public_html/painel/classes/Painel.php(43): include('/home/emrstecc/...')
+#2 /home/emrstecc/public_html/painel/main.php(73): Painel::carregarPagina()
+#3 /home/emrstecc/public_html/painel/index.php(8): include('/home/emrstecc/...')
+#4 {main}
+  thrown in /home/emrstecc/public_html/painel/pages/gerenciar-chamados.php on line 5

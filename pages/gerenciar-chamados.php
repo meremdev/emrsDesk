@@ -1,5 +1,5 @@
 <?php
-	if(isset($_GET['excluir'])){
+    if(isset($_GET['excluir'])){
 		$idExcluir = intval($_GET['excluir']);
 		Painel::deletar('chamados',$idExcluir);
 		Painel::redirect(INCLUDE_PATH.'gerenciar-chamados');
@@ -16,7 +16,7 @@
 	
 ?>
 <div class="box-content">
-	<h2><i class="fa fa-id-card-o" aria-hidden="true"></i> Chamados Registrados</h2>
+	<h2><i class="fa fa-id-card-o" aria-hidden="true"></i> Chamados Gerenciamento</h2>
 	<div class="wraper-table">
 	<table>
 		<tr>
