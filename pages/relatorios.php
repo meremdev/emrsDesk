@@ -1,55 +1,64 @@
 <div class="box-content rat">
 	<h2><i class="fa fa-pencil"></i>Relatorio</h2>
 
-	<form class="relatorio" method="post" enctype="multipart/form-data">
-        <?php
+	
+	<div class="forms">
+		<form class="relatorio" method="post" enctype="multipart/form-data">
+			<?php
 
-            $periodo = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+				$periodo = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-            if(isset($_POST['acao'])){
+				if(isset($_POST['acao'])){
 
-                $query = "SELECT * FROM chamados WHERE `data` BETWEEN :inicio AND :fim AND status= 1";
-                $sql = MySql::conectar()->prepare($query);
-                $sql->bindParam(':inicio', $periodo['inicio']);
-                $sql->bindParam(':fim', $periodo['fim']);
-                $sql->execute();
-                $chamados = $sql->fetchAll();
-            }else{
-				$query = "SELECT * FROM chamados WHERE status= 1";
-                $sql = MySql::conectar()->prepare($query);
-                $sql->bindParam(':inicio', $periodo['inicio']);
-                $sql->bindParam(':fim', $periodo['fim']);
-                $sql->execute();
-                $chamados = $sql->fetchAll();
-			}
-        ?>
-		<div class="col-form">
-			<label>Data inicio</label>
-			<input type="date" name="inicio" value="<?php echo $periodo['inicio'] ?>">
-		</div><!--form-group-->
+					$query = "SELECT * FROM chamados WHERE `data` BETWEEN :inicio AND :fim AND status= 1";
+					$sql = MySql::conectar()->prepare($query);
+					$sql->bindParam(':inicio', $periodo['inicio']);
+					$sql->bindParam(':fim', $periodo['fim']);
+					$sql->execute();
+					$chamados = $sql->fetchAll();
+				}else{
+					$query = "SELECT * FROM chamados WHERE status= 1";
+					$sql = MySql::conectar()->prepare($query);
+					$sql->execute();
+					$chamados = $sql->fetchAll();
+				}
+			?>
+			<div class="col-form">
+				<label>Data inicio</label>
+				<input required type="date" name="inicio" value="<?php echo isset($periodo['inicio']) ? $periodo['inicio'] :  date('Y-m-d') ?>">
+			</div><!--form-group-->
 
-        <div class="col-form">
-			<label>Data final</label>
-			<input type="date" name="fim" value="<?php echo $periodo['fim'] ?>">
-		</div><!--form-group-->
+			<div class="col-form">
+				<label>Data final</label>
+				<input required type="date" name="fim" value="<?php echo isset($periodo['inicio']) ? $periodo['inicio'] :  date('Y-m-d') ?>">
+			</div><!--form-group-->
 
-		<div class="col-form">
-			<input type="submit" name="acao" value="Buscar!">
-		</div><!--form-group-->
+			<div class="col-form">
+				<input type="submit" name="acao" value="Buscar!">
+			</div><!--form-group-->
 
-        <div class="clear"></div>
-	</form>
+			
 
-   
-		<?php
+			<div class="clear"></div>
+		</form>
 
-			$encoding = mb_internal_encoding('UTF-8');
+		<form class="" action="<?php echo INCLUDE_PATH; ?>pdf.php" method="get" target="_blank" >
+			<input type="hidden" name="inicio" value="<?php echo $periodo['inicio'] ?>">
+			<input type="hidden" name="fim" value="<?php echo $periodo['fim'] ?>">
+			<input class="form_pdf" type="submit" name="acao_pdf" value="Gerar pdf">
+		</form>
+	</div>
+	
 
-			foreach ($chamados as $key => $value) {
-			$tecnico = Painel::select('tb_admin.usuarios','id=?', array($value['tec_id']))['nome'];		
-            $usuario = Painel::select('tb_admin.usuarios','id=?',array($value['user_id']))['user'];    
-			$nomeAtivo = Painel::select('ativos','id=?',array($value['ativos_id']))['nome'];
-		?>
+
+
+	<?php
+
+		foreach ($chamados as $key => $value) {
+		$tecnico = Painel::select('tb_admin.usuarios','id=?', array($value['tec_id']))['nome'];		
+		$usuario = Painel::select('tb_admin.usuarios','id=?',array($value['user_id']))['user'];    
+		$nomeAtivo = Painel::select('ativos','id=?',array($value['ativos_id']))['nome'];
+	?>
 		<div class="rats">
 		
 			<div class="rat_logo">
@@ -84,7 +93,7 @@
 
 			<div class="rat_descr">
 				<div>
-					<p> <?php echo $value['conteudo']; ?> </p>
+					<p><?php echo $value['conteudo'] ?> </p>
 				</div>
 				<div>
 					<p><?php echo $value['resposta']?></p>
@@ -99,7 +108,7 @@
 
 		</div>
 
-		<?php } ?>
+	<?php } ?>
 
 	
 

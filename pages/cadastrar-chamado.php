@@ -46,7 +46,9 @@
 		<label>Ativo:</label>
 			<select name="ativos_id">
 				<?php
-					$ativos = Painel::selectAll('ativos');
+					$query = MySql::conectar()->prepare("SELECT * FROM ativos ORDER BY nome");
+					$query->execute();
+					$ativos = $query->fetchAll();
 					foreach ($ativos as $key => $value) {
 				?>
 				<option <?php if($value['id'] == @$_POST['ativos_id']) echo 'selected'; ?> value="<?php echo $value['id'] ?>"><?php echo $value['nome']; ?></option>

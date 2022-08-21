@@ -50,7 +50,9 @@
 			<label>Departamento:</label>
 			<select name="user_id">
 				<?php
-					$users = Painel::selectAll('tb_admin.usuarios');
+					$query = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` ORDER BY user");
+					$query->execute();
+					$users = $query->fetchAll();
 					foreach ($users as $key => $value) {
 				?>
 				<option <?php if($value['id'] == @$_POST['user_id']) echo 'selected'; ?> value="<?php echo $value['id'] ?>"><?php echo $value['user']; ?></option>
@@ -62,7 +64,9 @@
 			<label>Ativo:</label>
 			<select name="ativos_id">
 				<?php
-					$ativos = Painel::selectAll('ativos');
+					$query = MySql::conectar()->prepare("SELECT * FROM ativos ORDER BY nome");
+					$query->execute();
+					$ativos = $query->fetchAll();
 					foreach ($ativos as $key => $value) {
 				?>
 				<option <?php if($value['id'] == @$_POST['ativos_id']) echo 'selected'; ?> value="<?php echo $value['id'] ?>"><?php echo $value['nome']; ?></option>
