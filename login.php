@@ -11,7 +11,7 @@
 				$_SESSION['password'] = $password;
 				$_SESSION['cargo'] = $info['cargo'];
 				$_SESSION['nome'] = $info['nome']; 
-				$_SESSION['img'] = $info['img'];
+				// $_SESSION['img'] = $info['img'];
 				Painel::redirect(INCLUDE_PATH);
 			
 		}
@@ -44,7 +44,7 @@
 					$_SESSION['password'] = $password;
 					$_SESSION['cargo'] = $info['cargo'];
 					$_SESSION['nome'] = $info['nome']; 
-					$_SESSION['img'] = $info['img'];
+					// $_SESSION['img'] = $info['img'];
 					if(isset($_POST['lembrar'])){
 						setcookie('lembrar',true,time()+(60*60*24),'/');
 						setcookie('user',$user,time()+(60*60*24),'/');
