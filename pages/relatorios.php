@@ -30,7 +30,7 @@
 
 			<div class="col-form">
 				<label>Data final</label>
-				<input required type="date" name="fim" value="<?php echo isset($periodo['inicio']) ? $periodo['inicio'] :  date('Y-m-d') ?>">
+				<input required type="date" name="fim" value="<?php echo isset($periodo['fim']) ? $periodo['fim'] :  date('Y-m-d') ?>">
 			</div><!--form-group-->
 
 			<div class="col-form">

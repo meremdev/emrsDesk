@@ -25,7 +25,7 @@
 			<td>Ativo</td>
 			<td>Descriçao</td>
 			<td>Data</td>
-			<td>#</td>
+			<td>Status</td>
 			<td>#</td>
 			<td>#</td>
 			
@@ -44,7 +44,6 @@
 			<td><?php echo $nomeAtivo; ?></td>
 			<td><?php echo $value['conteudo']; ?></td>
 			<td><?php echo date('d/m/Y',strtotime($value['data'])); ?></td>
-			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>finalizar-chamado?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Verificar </a></td>
 			<td>
 				<?php
 					if($value['status'] == 1){
@@ -54,6 +53,7 @@
 					}
 				?>
 			</td>
+			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>finalizar-chamado?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Verificar </a></td>
 			<td><a actionBtn="delete" class="btn delete" href="<?php echo INCLUDE_PATH ?>gerenciar-chamados?excluir=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Excluir</a></td>
 		</tr>
 

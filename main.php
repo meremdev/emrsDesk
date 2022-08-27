@@ -49,6 +49,7 @@
 		<h2 <?php verificaPermissaoMenu(1);?>>Usuarios</h2>
 		<a <?php selecionadoMenu('editar-usuario'); ?> <?php verificaPermissaoMenu(1);?> href="<?php echo INCLUDE_PATH ?>editar-usuario">Editar Usuário</a>
 		<a <?php selecionadoMenu('adicionar-usuario'); ?> <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>adicionar-usuario">Adicionar Usuário</a>
+		<a <?php selecionadoMenu('gerenciar-usuarios'); ?> <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>gerenciar-usuarios">Gerenciar Usuário</a>
 	</div><!--items-menu-->
 	</div><!--menu-wraper-->
 </div><!--menu-->

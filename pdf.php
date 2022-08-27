@@ -98,7 +98,7 @@ foreach ($chamados as $key => $value) {
         <div class="main">
             <table>
                 <tr class="logo">
-                    <td><img src="http://localhost/emrsdesk/images/lhcons_logo.jpeg" alt=""></td>
+                    <td><img src="'.INCLUDE_PATH.'images/lhcons_logo.jpeg" alt=""></td>
                 </tr>
                 <tr class="dual">
                     <td><h1>relatorio de atividades tecnicas</h1></td>
