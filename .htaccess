@@ -4,3 +4,5 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 
 Options -Indexes
+
+Header always set Content-Security-Policy: upgrade-insecure-requests

@@ -12,7 +12,7 @@
 	spl_autoload_register($autoload);
 
 
-	define('INCLUDE_PATH','http://emrstec.com.br/hmca/');
+	define('INCLUDE_PATH','http://localhost/hmca/');
 	//define('INCLUDE_PATH_PAINEL',INCLUDE_PATH.'painel/');
 
 	define('BASE_DIR_PAINEL',__DIR__.'/');
@@ -20,9 +20,9 @@
 
 	//Conectar com banco de dados!
 	define('HOST','localhost');
-	define('USER','emrstecc');
-	define('PASSWORD','9Hqr5i55mZ+Z#S');
-	define('DATABASE','emrstecc_painel');
+	define('USER','root');
+	define('PASSWORD','');
+	define('DATABASE','emrsdesk');
 
 	//Constantes para o painel de controle
 	define('NOME_EMPRESA','TI - HMCA');

@@ -39,7 +39,7 @@
 		?>
 		<tr>
 			<td><?php echo $value['user']; ?></td>
-			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>editar-ativos?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Editar</a></td>
+			<td><a class="btn edit" href="<?php echo INCLUDE_PATH ?>editar-usuarios?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Editar</a></td>
 			<td><a actionBtn="delete" class="btn delete" href="<?php echo INCLUDE_PATH ?>gerenciar-usuarios?excluir=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Excluir</a></td>
 		</tr>
 
