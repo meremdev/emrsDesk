@@ -19,7 +19,7 @@
 	<div class="menu-wraper">
 		<div class="box-usuario">
 				<div class="avatar-usuario">
-					<img src="./images/lhcons_logo.jpeg" alt="" srcset="" width="300" height="300">
+					<img src="./images/lhcons_logo.jpeg" alt="" srcset="">
 				</div><!--avatar-usuario-->
 			
 			<div class="nome-usuario">
