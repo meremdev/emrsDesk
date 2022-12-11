@@ -22,7 +22,7 @@
 	define('HOST','localhost');
 	define('USER','root');
 	define('PASSWORD','');
-	define('DATABASE','emrsdesk');
+	define('DATABASE','emrstecc_painel');
 
 	//Constantes para o painel de controle
 	define('NOME_EMPRESA','TI - HMCA');
@@ -36,7 +36,7 @@
 		/*<i class="fa fa-angle-double-right" aria-hidden="true"></i>*/
 		$url = explode('/',@$_GET['url'])[0];
 		if($url == $par){
-			echo 'class="menu-active"';
+			echo 'active';
 		}
 	}
 
@@ -52,7 +52,7 @@
 		if($_SESSION['cargo'] >= $permissao){
 			return;
 		}else{
-			include('painel/pages/permissao_negada.php');
+			include('./pages/permissao_negada.php');
 			die();
 		}
 	}

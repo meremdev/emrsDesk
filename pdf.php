@@ -2,6 +2,7 @@
 require_once './classes/dompdf/autoload.inc.php';
 require_once './classes/MySql.php';
 require_once './config.php';
+// require_once './config_local.php';
 require_once './classes/Painel.php';
 
 $periodo = filter_input_array(INPUT_GET, FILTER_DEFAULT);
@@ -98,7 +99,7 @@ foreach ($chamados as $key => $value) {
         <div class="main">
             <table>
                 <tr class="logo">
-                    <td><img src="'.INCLUDE_PATH.'images/lhcons_logo.jpeg" alt=""></td>
+                    <td><img src="'.INCLUDE_PATH.'img/lhcons_logo.jpeg" alt=""></td>
                 </tr>
                 <tr class="dual">
                     <td><h1>relatorio de atividades tecnicas</h1></td>

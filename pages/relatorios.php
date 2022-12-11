@@ -1,115 +1,110 @@
-<div class="box-content rat">
-	<h2><i class="fa fa-pencil"></i>Relatorio</h2>
-
-	
-	<div class="forms">
-		<form class="relatorio" method="post" enctype="multipart/form-data">
-			<?php
-
-				$periodo = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
-				if(isset($_POST['acao'])){
-
-					$query = "SELECT * FROM chamados WHERE `data` BETWEEN :inicio AND :fim AND status= 1";
-					$sql = MySql::conectar()->prepare($query);
-					$sql->bindParam(':inicio', $periodo['inicio']);
-					$sql->bindParam(':fim', $periodo['fim']);
-					$sql->execute();
-					$chamados = $sql->fetchAll();
-				}else{
-					$query = "SELECT * FROM chamados WHERE status= 1";
-					$sql = MySql::conectar()->prepare($query);
-					$sql->execute();
-					$chamados = $sql->fetchAll();
-				}
-			?>
-			<div class="col-form">
-				<label>Data inicio</label>
-				<input required type="date" name="inicio" value="<?php echo isset($periodo['inicio']) ? $periodo['inicio'] :  date('Y-m-d') ?>">
-			</div><!--form-group-->
-
-			<div class="col-form">
-				<label>Data final</label>
-				<input required type="date" name="fim" value="<?php echo isset($periodo['fim']) ? $periodo['fim'] :  date('Y-m-d') ?>">
-			</div><!--form-group-->
-
-			<div class="col-form">
-				<input type="submit" name="acao" value="Buscar!">
-			</div><!--form-group-->
-
-			
-
-			<div class="clear"></div>
-		</form>
-
-		<form class="" action="<?php echo INCLUDE_PATH; ?>pdf.php" method="get" target="_blank" >
-			<input type="hidden" name="inicio" value="<?php echo $periodo['inicio'] ?>">
-			<input type="hidden" name="fim" value="<?php echo $periodo['fim'] ?>">
-			<input class="form_pdf" type="submit" name="acao_pdf" value="Gerar pdf">
-		</form>
-	</div>
-	
-
-
-
-	<?php
-
-		foreach ($chamados as $key => $value) {
-		$tecnico = Painel::select('tb_admin.usuarios','id=?', array($value['tec_id']))['nome'];		
-		$usuario = Painel::select('tb_admin.usuarios','id=?',array($value['user_id']))['user'];    
-		$nomeAtivo = Painel::select('ativos','id=?',array($value['ativos_id']))['nome'];
-	?>
-		<div class="rats">
-		
-			<div class="rat_logo">
-				<img src="./images/lhcons_logo.jpeg" width="200" height="240" alt="">
+<?php verificaPermissaoPagina(1); ?>
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<h5 class="card-title">buscar ocorrencias</h5>
 			</div>
+			<div class="card-body">
+				<form method="post" class="row row-cols-md-auto align-items-center">
+					<?php
+						
 
-			<div class="rat_header">
-				<div class="rat_title">
-					<h1>RELATÓRIO DE ATIVIDADES TECNICAS</h1>
-				</div>
-				<div class="">
-					<p><span>PRESTADOR (ES)</span></p>
-					<P><?php echo $tecnico ; ?></p>
-					<p><span>REF: </span><?php echo date('d/m/Y',strtotime($value['data'])); ?></p>
-				</div>
+						$periodo = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+						if(isset($_POST['acao'])){
+
+							$query = "SELECT * FROM chamados WHERE `data` BETWEEN :inicio AND :fim AND status= 1";
+							$sql = MySql::conectar()->prepare($query);
+							$sql->bindParam(':inicio', $periodo['inicio']);
+							$sql->bindParam(':fim', $periodo['fim']);
+							$sql->execute();
+							$chamados = $sql->fetchAll();
+						}else{
+							$chamados = array();
+						}
+					?>
+					<div class="col-12">
+						<label class="sr-only" for="inlineFormInputName2">inicio do periodo</label>
+						<input type="date" name="inicio" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"  value="<?php echo isset($periodo['inicio']) ? $periodo['inicio'] :  date('Y-m-d') ?>">
+					</div>
+
+					<div class="col-12">
+						<div class="input-group mb-2 mr-sm-2">
+							<label class="sr-only" for="inlineFormInputName2">finaldo do periodo</label>
+							<input type="date" name="fim" class="form-control" id="inlineFormInputGroupUsername2"   value="<?php echo isset($periodo['fim']) ? $periodo['fim'] :  date('Y-m-d') ?>">
+						</div>
+					</div>
+
+					<div class="col-12">
+						<button type="submit" name="acao" class="btn btn-primary mb-2">buscar</button>
+					</div>
+
+				</form>
 			</div>
-
-			<div class="rat_cli">
-				<p><span>CLIENTE:</span> BENEFICENCIA HOSPITALAR CESARIO DE LANGE</p>
-			</div>
-
-			<div class="rat_unit">
-				<p><span>UNIDADE:</span> HOSPITAL MUNICIPAL DA CRIANÇA E DO ADOLESCENTE</p>
-			</div>
-
-			<div class="rat_dep">
-				<ul>
-					<li><?php echo $usuario; ?></li>
-				</ul>		
-			
-			</div>
-
-			<div class="rat_descr">
-				<div>
-					<p><?php echo $value['conteudo'] ?> </p>
-				</div>
-				<div>
-					<p><?php echo $value['resposta']?></p>
-				</div>
-			</div>
-
-			<div class="rat_ativo">
-				<p><?php echo $nomeAtivo;?><p>
-			</div>
-
-			<!-- <div class="rat_void"></div> -->
-
 		</div>
+	</div>
+</div>
 
-	<?php } ?>
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
 
-	
+			<form class="" action="<?php echo INCLUDE_PATH; ?>pdf.php" method="get" target="_blank" >
+				<input type="hidden" name="inicio" value="<?php echo $periodo['inicio'] ?>">
+				<input type="hidden" name="fim" value="<?php echo $periodo['fim'] ?>">
+				<input class="btn btn-success" type="submit" name="acao_pdf" value="Gerar pdf">
+			</form>
+			
+			</div>
+			<div class="card-body">
+			
 
-</div><!--box-content-->
+				<table id="datatables-marca" class="table table-striped" style="width:100%">
+					<thead>
+						<tr>
+							
+						
+							<th>ID</th>
+							<td>Tecnico</td>
+							<td>Departamento</td>
+							<td>Ativo</td>
+							<td>Descrição</td>
+							<td>Status</td>
+							<td>Data</td>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							foreach ($chamados as $key => $value) {
+								
+							@$tecnico = Painel::select('tb_admin.usuarios','id=?', array($value['tec_id']))['nome'];	
+							$usuario = Painel::select('tb_admin.usuarios','id=?',array($value['user_id']))['user'];
+							$nomeAtivo = Painel::select('ativos','id=?',array($value['ativos_id']))['nome'];
+						?>
+							<tr>
+							
+								<td><?php echo $value['id']; ?></td>
+								<td><?php echo $tecnico; ?></td>
+								<td><?php echo $usuario; ?></td>
+								<td><?php echo $nomeAtivo; ?></td>
+								<td><?php echo $value['conteudo']; ?></td>
+								<td>
+									<?php
+										if($value['status'] == 1){
+											echo '<p class="badge bg-success">Finalizado</p>';
+										}else{
+											echo '<p class="badge bg-danger"">em aberto</p>';
+										}
+									?>
+								</td>
+								<td><?php echo date('d/m/Y',strtotime($value['data'])); ?></td>
+							</tr>
+						<?php } ?>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

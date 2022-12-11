@@ -1,6 +1,6 @@
 <?php
 	ob_start();
-	include('config_local.php');
+	include('config.php');
 
 	if(Painel::logado() == false){
 		include('login.php');

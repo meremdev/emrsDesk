@@ -4,81 +4,84 @@
 	}
 ?>
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Painel de Controle</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<link rel="stylesheet" href="<?php echo INCLUDE_PATH ?>estilo/font-awesome.min.css">
-	<link href="<?php echo INCLUDE_PATH ?>estilo/style.css" rel="stylesheet" />
-</head>
-<body>
+<html lang="en">
 
-<div class="menu">
-	<div class="menu-wraper">
-		<div class="box-usuario">
-				<div class="avatar-usuario">
-					<img src="./images/lhcons_logo.jpeg" alt="" srcset="">
-				</div><!--avatar-usuario-->
-			
-			<div class="nome-usuario">
-				<p><?php echo $_SESSION['user']; ?></p>
-				<p><?php echo $_SESSION['nome']; ?></p>
-			</div><!--nome-usuario-->
-		</div><!--box-usuario-->
-		<div class="items-menu">
-			<h2>Chamados</h2>
-			<a <?php selecionadoMenu('cadastrar-chamado'); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado">Registrar</a>
-			
-			<a <?php selecionadoMenu('visualizar-chamados'); ?> href="<?php echo INCLUDE_PATH ?>visualizar-chamados">Visualizar</a>
-			<a <?php selecionadoMenu('cadastrar-ativo'); ?>  <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>cadastrar-ativo">Cadastrar Ativos</a>
-			<a <?php selecionadoMenu('gerenciar-ativos'); ?>  <?php verificaPermissaoMenu(2); ?> href="<?php echo INCLUDE_PATH ?>gerenciar-ativos">Gerenciar Ativos</a>
-			<a <?php selecionadoMenu('gerenciar-chamados'); ?>  <?php verificaPermissaoMenu(1);?> href="<?php echo INCLUDE_PATH ?>gerenciar-chamados">Gerenciar Chamados</a>
-			<h2 <?php verificaPermissaoMenu(1);?>>Relatorios</h2>
-			<a <?php selecionadoMenu('cadastrar-chamado-tec'); ?> <?php verificaPermissaoMenu(1);?> href="<?php echo INCLUDE_PATH ?>cadastrar-chamado-tec">Cadastrar RAT</a>
-			<a <?php selecionadoMenu('relatorios'); ?>  <?php verificaPermissaoMenu(1);?> href="<?php echo INCLUDE_PATH ?>relatorios">Relatorios</a>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
+		<meta name="author" content="Bootlab">
 
-			<h2 <?php verificaPermissaoMenu(1);?>>Usuarios</h2>
-			<a <?php selecionadoMenu('editar-usuario'); ?> <?php verificaPermissaoMenu(1);?> href="<?php echo INCLUDE_PATH ?>editar-usuario">Editar Usuário</a>
-			<a <?php selecionadoMenu('adicionar-usuario'); ?> <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>adicionar-usuario">Adicionar Usuário</a>
-			<a <?php selecionadoMenu('gerenciar-usuarios'); ?> <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH ?>gerenciar-usuarios">Gerenciar Usuário</a>
-		</div><!--items-menu-->
-	</div><!--menu-wraper-->
-</div><!--menu-->
+		<title>Calendar | AppStack - Admin &amp; Dashboard Template</title>
 
-<header>
-	<div class="center">
-		<div class="menu-btn">
-			<i class="fa fa-bars"></i>
-		</div><!--menu-btn-->
+		<!--<link rel="canonical" href="https://appstack.bootlab.io/calendar.html" />-->
+		<link rel="shortcut icon" href="img/favicon.ico">
 
-		<div class="loggout">
-			<a <?php if(@$_GET['url'] == ''){ ?> style="background: #03989e;padding: 15px; color:white;" <?php } ?> href="<?php echo INCLUDE_PATH?>"> <i class="fa fa-home"></i> <span>Página Inicial</span></a>
-			<a href="<?php echo INCLUDE_PATH ?>?loggout"> <i class="fa fa-window-close"></i> <span>Sair</span></a>
-		</div><!--loggout-->
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-		<div class="clear"></div>
-	</div>
-</header>
+		<!-- Choose your prefered color scheme -->
+		<!-- <link href="css/light.css" rel="stylesheet"> -->
+		<!-- <link href="css/dark.css" rel="stylesheet"> -->
 
-<div class="content">
+		<!-- BEGIN SETTINGS -->
+		<!-- Remove this after purchasing -->
+		<link class="js-stylesheet" href="<?php echo INCLUDE_PATH ?>styles/light.css" rel="stylesheet">
+		<!-- <script src="js/settings.js"></script> -->
+		<!-- END SETTINGS -->
+	</head>
+	<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="fixed">
 
-	<?php Painel::carregarPagina(); ?>
+		<div class="wrapper">
+			<!-- incluir menu lateral -->
+			<?php include 'include/navbar.php'?>
 
+			<div class="main">
+				<!-- incluir menu topo -->
+			<?php include 'include/navbar_top.php'?>
 
-</div><!--content-->
+				<main class="content">
+					<div class="container-fluid p-0">
+						<!-- incluir paginas -->
+						<?php Painel::carregarPagina(); ?>
+					</div>
+				</main>
 
-<script src="<?php echo INCLUDE_PATH?>js/jquery.js"></script>
-<script src="<?php echo INCLUDE_PATH ?>js/jquery.mask.js"></script>
-<script src="<?php echo INCLUDE_PATH ?>js/main.js"></script>
- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script>
-  tinymce.init({ 
-  	selector:'.tinymce',
-  	plugins: "image",
-  	height:300
-   });
-  </script>
-</body>
+				<footer class="footer">
+					<div class="container-fluid">
+						<div class="row text-muted">
+							<div class="col-6 text-start">
+								<ul class="list-inline">
+									<li class="list-inline-item">
+										<a class="text-muted" href="https://emrstec.com.br/">Suporte</a>
+									</li>
+
+								</ul>
+							</div>
+							<div class="col-6 text-end">
+								<p class="mb-0">
+									&copy; 2022 - <a href="https://emrstec.com.br/" class="text-muted">Emrstec</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</footer>
+
+			</div>
+
+		</div>
+
+		<script src="<?php echo INCLUDE_PATH ?>js/app.js"></script>	
+		<script>
+			$(document).ready(function () {
+					$("table").DataTable({
+						"language":{
+							"url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/pt-BR.json"
+						}
+					});
+			});
+		</script>	
+
+	</body>
+
 </html>
